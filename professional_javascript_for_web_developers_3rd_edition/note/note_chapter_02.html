@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <title>Onlycau's Note</title>
+    <link rel="stylesheet" type="text/css" href="note.css">
+  </head>
+
+  <body>
+
+    <header>
+      <img id="logo" src="images/logo_book.png">
+      <h1>Onlycau's Note</h1>
+    </header>
+
+    <nav>
+        <ul>
+          <li class="selected"><a href="index.html">Home</a></li>
+          <li><a href="blog.html">JavaScript</a></li>
+          <li><a href="">Pass</a></li>
+          <li><a href="">Pass</a></li>
+          <li><a href="">Pass</a></li>
+        </ul>
+    </nav>
+
+    <div id="table_container">
+    <div id="table_row">
+
+      <section id="note_list">
+
+        <div class="dropdown">
+          <button class="dropbtn">2019年</button>
+          <div class="dropdown-content">
+            <a href="">2018年</a>
+            <a href="">2017年</a>
+          </div>
+        </div>
+        <br>
+        <button>07月</button><br>
+        <button>08月</button><br>
+        <button>09月</button><br>
+        <button>10月</button><br>
+        <button>11月</button><br>
+        <button>12月</button><br>
+
+      </section>
+
+      <section id="main">
+        <h1>JavaScript 高级程序设计第二章</h1>
+        <time datetime="2019-07-02">07/02/2019</time>
+        <p>
+        把 JavaScript 插入到 HTML 页面中要使用 &lt;script&gt;元素。使用这个元素可以把 JavaScript 嵌入到HTML 页面中,让脚本与标记混合在一起;也可以包含外部的 JavaScript 文件。而我们需要注意的地方有:<br><br>
+        在包含外部 JavaScript 文件时,必须将 src 属性设置为指向相应文件的URL。而这个文件既可以是与包含它的页面位于同一个服务器上的文件,也可以是其他任何域中的文件。<br>
+        所有 &lt;script&gt; 元素都会按照它们在页面中出现的先后顺序依次被解析。在不使用 defer 和 async 属性的情况下,只有在解析完前面 &lt;script&gt; 元素中的代码之后,才会开始解析后面&lt;script&gt; 元素中的代码。<br>
+        由于浏览器会先解析完不使用 defer 属性的 &lt;script&gt; 元素中的代码,然后再解析后面的内容,所以一般应该把 &lt;script&gt; 元素放在页面最后,即主要内容后面, &lt;/body&gt; 标签前面。<br>
+        使用 defer 属性可以让脚本在文档完全呈现之后再执行. 延迟脚本总是按照指定它们的顺序执行。<br>
+        使用 async 属性可以表示当前脚本不必等待其他脚本,也不必阻塞文档呈现。不能保证异步脚本按照它们在页面中出现的顺序执行。<br>
+        另外,使用 &lt;noscript&gt;元素可以指定在不支持脚本的浏览器中显示的替代内容。但在启用了脚本的情况下,浏览器不会显示 &lt;noscript&gt; 元素中的任何内容.
+        </p>
+      </section>
+
+      <aside id="ad">
+        <p>some ad</p>
+      </aside>
+    </div>
+    </div>
+
+    <footer>
+      &copy; 2019, Onlycau
+      <br>
+      All trademarks and registered trademarks appearing on 
+      this site are the property of their respective owners.
+    </footer>
+
+  </body>
+</html>
