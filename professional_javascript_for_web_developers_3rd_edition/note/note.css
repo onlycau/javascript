@@ -33,6 +33,7 @@ nav ul li a:link, nav ul li a:visited {
 div#table_container {
   display: table;
   border-spacing: 10px;
+  width: 100%;
 }
 
 div#table_row {
@@ -96,15 +97,21 @@ section#note_list>button{
     background-color: #3e8e41;
 }
 
+/*博客内容*/
+
 section#main{
   display: table-cell;
   background:       #efe5d0;
-  width: 70%;
+  width: 75%;
   font-size:        105%;
   padding:          15px;
   vertical-align: top;
 }
 
+.important_text{
+  color: red;
+}
+/* ad*/
 aside{
   display: table-cell;
   width: 15%;
