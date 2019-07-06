@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <title>Onlycau's Note</title>
+    <link rel="stylesheet" type="text/css" href="note.css">
+  </head>
+
+  <body>
+
+    <header>
+      <img id="logo" src="images/logo_book.png">
+      <h1>Onlycau's Note</h1>
+    </header>
+
+    <nav>
+        <ul>
+          <li class="selected"><a href="index.html">Home</a></li>
+          <li><a href="blog.html">JavaScript</a></li>
+          <li><a href="">Pass</a></li>
+          <li><a href="">Pass</a></li>
+          <li><a href="">Pass</a></li>
+        </ul>
+    </nav>
+
+    <div id="table_container">
+    <div id="table_row">
+
+      <section id="note_list">
+
+        <div class="dropdown">
+          <button class="dropbtn">2019年</button>
+          <div class="dropdown-content">
+            <a href="">2018年</a>
+            <a href="">2017年</a>
+          </div>
+        </div>
+        <br>
+        <button>07月</button><br>
+        <button>08月</button><br>
+        <button>09月</button><br>
+        <button>10月</button><br>
+        <button>11月</button><br>
+        <button>12月</button><br>
+
+      </section>
+
+      <section id="main">
+        <h1>JavaScript 高级程序设计第十个章</h1>
+        <time datetime="2019-07-03">07/03/2019</time>
+        <p>
+          当页面中包含来自其他子域的框架或内嵌框架时,能够设置document.domain就非常方便了。由于跨域安全限制,来自不同子域的页面无法通过JavaScript通信。而通过将每个页面的document.domain设置为相同的值,这些页面就可以互相访问对方包含的JavaScript对象了。例如,假设有一个页面加载自www.wrox.com,其中包含一个内嵌框架,框架内的页面加载自p2p.wrox.com。由于document.domain字符串不一样,内外两个页面之间无法相互访问对方的JavaScript对象。但如果将这两个页面的document.domain值都设置为"wrox.com",它们之间就可以通信了。
+        </p>
+      </section>
+
+      <aside id="ad">
+        <p>some ad</p>
+      </aside>
+    </div>
+    </div>
+
+    <footer>
+      &copy; 2019, Onlycau
+      <br>
+      All trademarks and registered trademarks appearing on 
+      this site are the property of their respective owners.
+    </footer>
+
+  </body>
+</html>

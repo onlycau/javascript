@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node Hierachy</title>
+  <script type="text/javascript">
+    var html = document.documentElement;
+    alert(html === document.childNodes[1]);
+    alert(html === document.firstChild);
+    alert(document.doctype === document.firstChild);
+    alert(document.title);
+    document.title = 'sing';
+    alert(document.URL);
+    alert(document.title);
+  </script>
+</head>
+<body>
+<h1>nice</h1>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+
+  <div id="myDiv" class="bd" title="Body text" lang="en" dir="ltr"></div>
+
+  <script type="text/javascript">
+    var div = document.getElementById('myDiv');
+    div.setAttribute("id", "someOtherId");
+    div.setAttribute("class", "ft");
+    div.setAttribute("title", "Some other text");
+    div.setAttribute("lang","fr");
+    div.setAttribute("dir", "rtl");
+    alert(div.getAttribute("id"));
+    alert(div.getAttribute("class"));
+    alert(div.getAttribute("title"));
+    alert(div.getAttribute("lang"));
+    alert(div.getAttribute("dir"));
+
+
+  </script>
+
+</body>
+</html>

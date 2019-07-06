@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Notes</title>
+</head>
+<body>
+  <div id="myDiv">My div</div>
+  <img src="../note/images/onlycau.png" name="myImage">
+  <img src="../note/images/onlycau.png" name="myImage">
+  <ul id="myList"></ul>
+
+  <script type="text/javascript">
+    var fragment = document.createDocumentFragment();
+    var ul = document.getElementById("myList");
+    var li = null;
+    for (var i=0; i < 3; i++){
+    li = document.createElement("li");
+    li.appendChild(document.createTextNode("Item " + (i+1)));
+    fragment.appendChild(li);
+    }
+    ul.appendChild(fragment);
+
+  </script>
+</body>
+</html>
