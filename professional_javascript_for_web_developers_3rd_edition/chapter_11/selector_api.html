@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <title>Slector APi</title>
+  <meta charset="utf-8">
+</head>
+<body>
+
+  <div id="myDiv">myDiv</div>
+  <span class="selected">first span with calss='selected'</span>
+  <span class="selected">second span</span>
+  <img class="button" src="../note/images/onlycau.png">
+
+  <script type="text/javascript">
+    var body = document.querySelector('body');
+    var myDiv = document.querySelector('#myDiv');
+    var selected = document.querySelector('span');
+    var img = document.querySelector('img.button');
+    alert(body.firstChild.nodeValue);
+    alert(myDiv.firstChild.nodeValue);
+    alert(selected.firstChild.nodeValue);
+    alert(img);
+
+    var selectes = document.querySelectorAll('span');
+    for (i=0;i<2;i++){
+      alert(selectes[i].firstChild.nodeValue);
+    }
+
+  </script>
+
+</body> 
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <title>elements ergodic</title>
+  <meta charset="utf-8">
+  <style type="text/css">
+    .div{
+      color: red;
+    }
+    .div2{
+      font-size: 150%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="div div2">div1</div>
+  <div class="div2 div">div2</div>
+  <div class="div">div3</div>
+
+  <script type="text/javascript">
+    var allDiv = document.getElementsByClassName('div div2');
+    for (i=0;i<2;i++){
+      alert(allDiv[i].firstChild.nodeValue);
+    }
+    alert(allDiv[0].classList);
+    //allDiv[0].clsssList.add('div4'); clsss!!!!!!!!!!!!!
+    allDiv[0].classList.remove('div');
+    alert(allDiv[0].classList);
+  </script>
+
+</body>
+</html>

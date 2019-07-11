@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>textarea script</title>
+</head>
+<body>
+
+  <input type="text" size="25" maxlength="50" value="initial value">
+  <textarea rows="25" cols="5">initial value</textarea>
+
+  <script type="text/javascript">
+    var textbox = document.forms[0].elements['textboox1'];
+    alert(textbox.value);
+    textbox.value = 'some new value';
+  </script>
+
+</body>
+</html>
