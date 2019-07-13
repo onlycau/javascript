@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form input bindings</title>
+</head>
+<body>
+  <div id="example_1">
+    <input v-model='message' placeholder="edit me">
+    <p>Message is : {{message}}</p>
+  </div>
+
+  <div id="example_2">
+    <span>Multiline message2 is:</span>
+    <p style="white-space: pre-line;">{{message2}}</p>
+    <br>
+    <textarea v-model='message2' placeholder="add multiple lines"></textarea>
+  </div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+  var example_1 = new Vue({
+    el:'#example_1',
+    data:{
+      message:''
+    }
+  })
+  var example_2 = new Vue({
+    el:'#example_2',
+    data:{
+      message2:''
+    }
+  })
+</script>
+</body>
+</html>

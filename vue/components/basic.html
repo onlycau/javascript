@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+  <div id="components-demo">
+    <button-counter></button-counter>
+  </div>
+
+  <div id="blog-demo">
+    <blog-post title = 'my journey with Vue'></blog-post>
+    <blog-post title="Why Vue is so fun"></blog-post>
+  </div>
+  <blog-post title="Blogging with Vue"></blog-post>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+  Vue.component('button-counter',{
+  data:function(){
+    return{
+      count:0
+    }
+  },
+  template:'<button v-on:click="count++">You clicked me {{count}} times </button>'
+})
+  new Vue({el:'#components-demo'})
+
+  Vue.component('blog-post',{
+    props:['title'],
+    template:'<h3>{{title}}</h3>'
+  })
+  new Vue({el:'#blog-demo'})
+</script>
+</body>
+</html>

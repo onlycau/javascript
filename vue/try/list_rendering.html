@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List rendering</title>
+</head>
+<body>
+
+  <ul id="example_1">
+    <li v-for="item in items">
+      {{item.message}}
+    </li>
+  </ul>
+
+  <ul id='example_2'>
+    <li v-for='value in object'>
+      {{value}}
+    </li>
+  </ul>
+
+  <ul id="ecample_3">
+    <li v-for='n in evenNumbers'>{{n}}</li>
+  </ul>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+  var example_1 = new Vue({
+    el:'#example_1',
+    data:{
+      items:[
+      {message:'Foo'},
+      {message:'Bar'}]
+    }
+  })
+  new Vue({
+    el:'#example_2',
+    data:{
+      object:{
+        title:'How to do list in Vue',
+        author:'onlycau',
+        publishedAt:Date()
+      }
+    }
+  })
+  example_1.items.push({ message: 'Baz' })
+  example_1.items = example_1.items.filter(function(item){
+    return item.message.match(/Foo/)
+  })
+  var ecample_3 = new Vue({
+    el:'#ecample_3',
+    data:{
+      numbers:[1,2,3,4,5]
+    },
+    computed:{
+      evenNumbers:function(){
+        return this.numbers.filter(function(number){
+          return number % 2 ===0
+        })
+      }
+    }
+  })
+</script>
+</body>
+</html>

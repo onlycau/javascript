@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <title>conditional rendering</title>
+</head>
+<body>
+
+  <div id="demo">
+    <h1 v-if='awesome'>Vue is awesome</h1>
+    <h1 v-else>Oh no</h1>
+  </div>
+
+  <div id='test' v-if='ok'>
+    <h1>Title</h1>
+    <p>p1</p>
+  </div>
+
+  <div>
+    <h1 v-if="Math.random()>0.5">Now you see me</h1>
+    <h1 v-else>Now you don't</h1> 
+  </div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+  var vm = new Vue({
+    el:'div',
+    data:{
+      awesome:true
+    }
+  });
+  var vm2 = new Vue({
+    el:'#test',
+    data:{
+      ok: true
+    }
+  })
+</script>
+</body>
+</html>
