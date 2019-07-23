@@ -9,10 +9,15 @@ var vm = new Vue({
       //this 指向vm实例
       return this.message.split('').reverse().join('')
     }
+  },
+  methods:{
+  now : function(){
+    return Date()
   }
+}
 })
 //计算属性基于响应式依赖进行缓存 相关响应式依赖发生改变时才会重新求值
-//方法总会再次执行函数当触发重新渲染
+//每当触发重新渲染时 调用方法总会再次执行函数
 /*
 var vm = new Vue({
   el:'#example',
