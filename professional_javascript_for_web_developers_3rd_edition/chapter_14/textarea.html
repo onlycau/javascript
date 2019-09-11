@@ -2,16 +2,52 @@
 <html>
 <head>
   <title>textarea script</title>
+  <style type="text/css">
+    form{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    input{
+      margin: 20px;
+    }
+  </style>
 </head>
 <body>
-
-  <input type="text" size="25" maxlength="50" value="initial value">
-  <textarea rows="25" cols="5">initial value</textarea>
-
+  <form>
+    <input type="text" size="25" maxlength="50" value="initial value">
+    <textarea rows="5" cols="25" name="textbox1">initial value</textarea>
+    <h4>过滤输入</h4>
+    <textarea rows="4" cols="20" name="textbox2">过滤非数值</textarea>
+    <input type="email" name="email">
+    <input type="url" name="url">
+    <input type="number" name="number" step="5">
+  </form>
   <script type="text/javascript">
-    var textbox = document.forms[0].elements['textboox1'];
-    alert(textbox.value);
+    var textbox = document.forms[0].elements['textbox1'];
     textbox.value = 'some new value';
+    textbox.select()
+    textbox.addEventListener('select',function(event){
+      event = event || window.event
+      console.log('text selected' + textbox.value)
+      console.log('text selected' + textbox.value.substring(textbox.selectionStart,textbox.selectionEnd))
+      console.log('2s后选择部分文本 3,8')
+      setTimeout(function(){
+        textbox.setSelectionRange(3,8)
+      },2000)
+    })
+    // 屏蔽keypress事件 仅能输入字母 (不适用 检测输入结果 自动处理更好)
+    let textbox2 = document.forms[0].elements['textbox2']
+    textbox2.addEventListener('keypress',function(event){
+      event = event || window.event
+      let target = event.target
+      let charCode = event.charCode
+      console.log(charCode)
+      if (charCode<48 || charCode>57){ 
+        event.preventDefault(event)
+      }
+    })
   </script>
 
 </body>

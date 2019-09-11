@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>表单序列化</title>
+  <style type="text/css">
+    form{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    form > * {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <input type="text" name="input_text" value="input_text">
+    <textarea>textarea</textarea>
+    <select name="location" id="selLocation">
+      <option value="Sunnyvale, CA">Sunnyvale</option>
+      <option value="Los Angeles, CA">Los Angles</option>
+      <option value="Mountain View, CA">Mountain View</option>
+      <option value="">China</option>
+    </select>
+    <select multiple="multiple" name="location_mutiple" id="sel_mutiple" >
+      <option value="Sunnyvale, CA">Sunnyvale</option>
+      <option value="Los Angeles, CA">Los Angles</option>
+      <option value="Mountain View, CA">Mountain View</option>
+      <option value="">China</option>
+    </select>
+  </form>
+</body>
+</html>

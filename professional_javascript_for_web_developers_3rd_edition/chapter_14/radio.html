@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>radio form</title>
+</head>
+<body>
+  <form method="post" id="myForm">
+    <ul>
+      <li><input type="radio" name="color" value="red">Red</li>
+      <li><input type="radio" name="color" value="green">Green</li>
+      <li><input type="radio" name="color" value="blue">Blue</li>
+      <textarea name="textbox"></textarea>
+      <input id="submit" type="submit" name="submit-btn" value="submit">
+    </ul>
+  </form>
+
+  <script>
+    let form = document.getElementById('myForm')
+    let colorFields = form.elements['color']
+    console.log(colorFields.length)
+    console.log(colorFields[0])
+    console.log(form.elements)
+    console.log(colorFields[0] === form.elements[0])
+    // 避免多次提交表单
+    console.log(form)
+    form.addEventListener('submit',function(event){
+      event = event || window.event
+      form.elements['submit-btn'].disabled = true
+      console.log(form.elements['submit-btn'].disabled)
+    })
+    setInterval(()=>{
+     console.log(form.elements['submit-btn'].disabled)
+    },1000)
+    // blur change focus事件
+    let textbox = document.forms[0].elements['textbox']
+    textbox.addEventListener('focus',function(event){
+      event = event || window.event
+      let target = event.target
+      target.style.backgroundColor = 'yellow'
+    })
+    textbox.addEventListener('blur',function(event){
+      event = event || window.event
+      let target = event.target
+      target.style.backgroundColor = 'red'
+    })
+    let degree = 0
+    textbox.addEventListener('change',function(event){
+      event = event || window.event
+      let target = event.target
+      degree += 1
+      target.style.textTransfrom = 'rotateY(' + degree + 'deg)'
+    })
+  </script>
+</body>
+</html>

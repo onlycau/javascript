@@ -2,15 +2,42 @@
 <html>
 <head>
   <title>Selectarea Script</title>
+  <style type="text/css">
+    button{
+      margin: 10px;
+    }
+  </style>
 </head>
 <body>
-
-  <select name="location" id="selLocation">
-    <option value="Sunnyvale, CA">Sunnyvale</option>
-    <option value="Los Angeles, CA">Los Angles</option>
-    <option value="Mountain View, CA">Mountain View</option>
-    <option value="">China</option>
-  </select>
-
+  <form>
+    <select name="location" id="selLocation">
+      <option value="Sunnyvale, CA">Sunnyvale</option>
+      <option value="Los Angeles, CA">Los Angles</option>
+      <option value="Mountain View, CA">Mountain View</option>
+      <option value="">China</option>
+    </select>
+  </form>
+  <button id="button">test</button>
+  <script type="text/javascript">
+    let selectbox = document.forms[0].elements['location']
+    console.log('3 text:' + selectbox.options[3].text)
+    console.log('3 value:' + selectbox.options[3].value)
+    // 
+    btn = document.getElementById('button')
+    btn.addEventListener('click',function(){
+      let option = null
+      for (let i = 0, len=selectbox.options.length; i < len; i++){
+        option = selectbox.options[i]
+        if(option.selected){
+          console.log(option.value)
+        }
+      }
+      // 添加选项
+      let newOption = document.createElement('option')
+      newOption.appendChild(document.createTextNode('new option'))
+      newOption.setAttribute('value','new option value')
+      selectbox.appendChild(newOption)
+    })
+  </script>
 </body>
 </html>
