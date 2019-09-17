@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>drag</title>
+</head>
+<body>
+  <div id="droptarget">droptarget</div>
+  <div id="dragtarget" draggable='true'>go go go</div>
+
+  <script type="text/javascript">
+    let droptarget = document.getElementById('droptarget')
+    droptarget.addEventListener('dragover',function(event){
+      event = event || window.event
+      event.preventDefault()
+    })
+    droptarget.addEventListener('dragenter',function(event){
+      event = event || window.event
+      event.preventDefault()
+    })
+
+    let dragtarget = document.getElementById('dragtarget')
+
+  </script>
+</body>
+</html>
