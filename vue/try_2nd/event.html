@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Handling</title>
+  <style type="text/css">
+    #example-3{
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Methods in linlie Handlers -->
+  <div id="example-3">
+    <button @click="say('Hi')">Say Hi</button>
+    <button @click = "say('what')">Say what</button>
+  </div>
+
+<!-- event modifiers for v-on -->
+  <!-- the click event's propagation will be stopped -->
+  <a v-on:click.stop="doThis"></a>
+
+  <!-- the submit event will no longer reload the page -->
+  <form v-on:submit.prevent="onSubmit"></form>
+
+  <!-- modifiers can be chained -->
+  <a v-on:click.stop.prevent="doThat"></a>
+
+  <!-- just the modifier -->
+  <form v-on:submit.prevent></form>
+
+  <!-- use capture mode when adding the event listener -->
+  <!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+  <div v-on:click.capture="doThis">...</div>
+
+  <!-- only trigger handler if event.target is the element itself -->
+  <!-- i.e. not from a child element -->
+  <div v-on:click.self="doThat">...</div>
+
+  <script src="../vue.js"></script>
+  <script >
+    let example3 = new Vue({
+      el: '#example-3',
+      methods:{
+        say(message){
+          console.log(message)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

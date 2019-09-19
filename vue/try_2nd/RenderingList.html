@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List Rendering</title>
+  <style type="text/css">
+    ul{
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<!--item in Array -->
+  <ul id="example-1">
+    <li v-for="item in items">
+      {{item.message}}
+    </li>
+  </ul>
+
+<!-- (item, index) in Array -->
+  <ul id="example-2">
+    <li v-for="(item, index) in items">
+      {{parentMessage}} - {{index}} - {{item.message}}
+    </li>
+  </ul>
+
+<!-- (value, name, index) in Object -->
+  <ul id="example-3">
+    <li v-for="(value, name, index) in MyObject">
+      {{index}}.{{name}}.{{value}}
+    </li>
+  </ul>
+
+
+<!-- Displaying Filtered/Sorted Results -->
+  <ul id="example-4">
+    <li v-for="n in even(numbers)">{{n}}</li>
+  </ul>
+
+<!-- v-for with a Component -->
+  <div id="todo-list-example">
+    <form @submit.prevent="addNewTodo">
+      <label for="new-todo">Add a todo</label>
+      <input
+        v-model="newTodoText"
+        id="new-todo"
+        placeholder="E.g. Feed the cat"
+      >
+      <button>Add</button>
+    </form>
+    <ul>
+      <li
+        is="todo-item"
+        v-for="(todo, index) in todos"
+        :key="todo.id"
+        :title="todo.title"
+        @remove="todos.splice(index, 1)"
+      ></li>
+    </ul>
+  </div>
+
+  <script src="../vue.js"></script>
+  <script >
+    let example1 = new Vue({
+      el: '#example-1',
+      data: {
+        items: [
+        {message: 'Foo'},
+        {message: 'Bar'},
+        ]
+      },
+      mounted(){
+        setTimeout(()=>{
+          this.items.push({message: 'new message'})
+          console.log('push new message and re-render list with Array.push()')
+        },3000)
+      }
+    })
+
+    let example2 = new Vue({
+      el: '#example-2',
+      data: {
+        parentMessage: 'Parent',
+        items: [
+        {message: 'ZhangShan'},
+        {message: 'LiSi'}
+        ]
+      }
+    })
+
+    let example3 = new Vue({
+      el: '#example-3',
+      data: {
+        MyObject:{
+          title: 'How to do list in vue',
+          author: 'Only Cau',
+          publishedAt: ' '+ Date()
+        }
+      },
+      mounted(){
+        setTimeout(()=>{
+          Vue.set(this.MyObject, 'title', 'How to change list with Vue.set()')
+        },5000)
+      }
+    })
+
+    let example4 = new Vue({
+      el: '#example-4',
+      data: {
+        numbers: [1, 2, 3, 4, 5]
+      },
+      methods:{
+        even(numbers){
+          return numbers.filter((number)=>number%2 === 0)
+        }
+      }
+    })
+
+    Vue.component('todo-item', {
+    template: '\
+      <li>\
+        {{ title }}\
+        <button v-on:click="$emit(\'remove\')">Remove</button>\
+      </li>\
+    ',
+    props: ['title']
+  })
+    new Vue({
+      el: '#todo-list-example',
+      data: {
+        newTodoText: '',
+        todos: [
+          {
+            id: 1,
+            title: 'Do the dishes',
+          },
+          {
+            id: 2,
+            title: 'Take out the trash',
+          },
+          {
+            id: 3,
+            title: 'Mow the lawn'
+          }
+        ],
+        nextTodoId: 4
+      },
+      methods: {
+        addNewTodo: function () {
+          this.todos.push({
+            id: this.nextTodoId++,
+            title: this.newTodoText
+          })
+          this.newTodoText = ''
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Class and Style binding</title>
+  <style type="text/css">
+    .active{
+      color: blue;
+    }
+    .text-danger{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div 
+    id="example-class" 
+    class="static" 
+    :class="{active:isActive,'text-danger':hasError}">
+    inline class:Are you OK ?
+    <p :class="classObject">classObjec: I am OK!</p>
+  </div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+  let app = new Vue({
+    el: '#example-class',
+    data:{
+      isActive: true,
+      hasError: false,
+      classObject:{
+        active:true,
+        'text-danger':false
+      }
+    },
+    mounted(){
+      setTimeout(()=>{
+        this.hasError = true
+        this.classObject['text-danger'] = true
+      },3000)
+    }
+  })
+</script>
+</body>
+</html>

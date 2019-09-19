@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Input Bindings</title>
+</head>
+<body>
+
+  <!-- text -->
+  <div id="example-2">
+    <input v-model="message" placeholder="edite me">
+    <p>Message is : {{message}}</p>
+    <span>Multiline message is :</span>
+    <p style="white-space:pre-line;">{{message}}</p>
+    <br>
+    <textarea v-model="message" placeholder="add multiple lines"></textarea>
+  </div>
+
+  <!-- checkbox -->
+  <div id='example-3'>
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames }}</span>
+  </div>
+
+  <script src="../vue.js"></script>
+  <script>
+    let example2 = new Vue({
+      el: '#example-2',
+      data: {
+        message: ''
+      }
+    })
+
+    let example3 = new Vue({
+      el: '#example-3',
+      data: {
+        checkedNames: []
+      }
+    })
+  </script>
+</body>
+</html>
